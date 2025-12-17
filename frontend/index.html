@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FastAPI Demo</title>
+</head>
+<body>
+
+  <h2>FastAPI + Frontend Demo</h2>
+
+  <input id="nameInput" placeholder="Enter your name" />
+  <button onclick="callAPI()">Send</button>
+
+  <p id="result"></p>
+
+  <script>
+    async function callAPI() {
+      const name = document.getElementById("nameInput").value;
+
+      const response = await fetch(
+        `http://localhost:8000/hello?name=${name}`
+      );
+
+      const data = await response.json();
+      document.getElementById("result").innerText = data.reply;
+    }
+  </script>
+
+</body>
+</html>
